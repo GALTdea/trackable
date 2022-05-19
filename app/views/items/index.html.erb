@@ -8,6 +8,7 @@
      <div> deleted item: <%= item.deleted? %></div> 
     <p>
       <%= link_to "Show this item", item %>
+      <%= link_to "Destroy Softly", soft_deletion_item_path(item),  method: :delete  %>
     </p>
   <% end %>
 </div>
