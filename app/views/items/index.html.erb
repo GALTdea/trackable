@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Items</h1>
+
+<div id="items">
+  <% @with_out_deleted.each do |item| %>
+    <%= link_to item.name, item_path(item) , class:'' %>
+     <div> deleted item: <%= item.deleted? %></div> 
+    <p>
+      <%= link_to "Show this item", item %>
+    </p>
+  <% end %>
+</div>
+
+
+<br>
+<br>
+<br>
+
+<%= link_to "New item", new_item_path %>
+<br>
+<br>
+<br>
+<h1>Deleted Items</h1>
+  <% @deleted.each do |item| %>
+    <%= link_to item.name, item_path(item) , class:'' %> 
+     <div> deleted item: <%= item.deleted? %></div> 
+  <% end %>

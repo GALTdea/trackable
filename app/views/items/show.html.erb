@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @item %>
+
+<div>
+  <%= link_to "Edit this item", edit_item_path(@item) %> |
+  <%= link_to "Back to items", items_path %>
+
+  <br>
+  <br>
+  <br>
+   <%= link_to "Destroy Softly", soft_deletion_item_path(@item),  method: :delete  %>
+</div>
