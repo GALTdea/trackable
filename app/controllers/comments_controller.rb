@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
-
+  protect_from_forgery with: :null_session, only: [:create, :update, :destroy]
   # GET /comments or /comments.json
   def index
     @comments = Comment.all

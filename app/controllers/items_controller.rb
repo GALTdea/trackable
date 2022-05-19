@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy  soft_deletion ]
-
+  protect_from_forgery with: :null_session, only: [:create, :update, :destroy]
   # GET /items or /items.json
   def index
     @items = Item.all
