@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   protect_from_forgery with: :null_session, only: [:create, :update, :destroy]
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @items = Item.filter(params)
     @with_out_deleted = Item.without_deleted
     @deleted = Item.deleted
     @with_deleted = Item.with_deleted

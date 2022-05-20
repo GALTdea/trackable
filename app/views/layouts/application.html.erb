@@ -10,6 +10,19 @@
   </head>
 
   <body>
+  <div class="container">
+    <nav class="">
+      <div class="">
+        <Span class="navbar"><%= link_to "View Items", items_path %></Span> 
+        <Span class="navbar"> <%= link_to "Add New Inventory Items", new_item_path %></Span>
+        <% if params[:filter] == "show_deleted" %>
+          <span class= "navbar"><%= link_to 'Hide deleted Items ', request.params.except('filter')  , class: "  " %></span>
+        <% else %>
+          <span class= "navbar"><%= link_to 'Show Deleted Items', request.params.slice(:filter).merge(filter: "show_deleted") , class: "  " %></span>
+        <% end %>
+      </div>
+    </nav>
     <%= yield %>
+  </div>
   </body>
 </html>
