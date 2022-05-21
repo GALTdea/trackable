@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy  soft_deletion ]
-  protect_from_forgery with: :null_session, only: [:create, :update, :destroy]
+  before_action :set_item, only: %i[ show edit update destroy  soft_deletion  restore]
+  protect_from_forgery with: :null_session, only: [:create, :update, :destroy, :restore]
   # GET /items or /items.json
   def index
     @items = Item.filter(params)
     @with_out_deleted = Item.without_deleted
     @deleted = Item.deleted
     @with_deleted = Item.with_deleted
-  
   end
 
   # GET /items/1 or /items/1.json
@@ -26,7 +25,6 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
     @item = Item.new(item_params)
-
     respond_to do |format|
       if @item.save
         format.html { redirect_to items_path, notice: "Item was successfully created." }
@@ -54,7 +52,6 @@ class ItemsController < ApplicationController
   # DELETE /items/1 or /items/1.json
   def destroy
     @item.destroy
-
     respond_to do |format|
       format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
       format.json { head :no_content }
@@ -68,11 +65,18 @@ class ItemsController < ApplicationController
     respond_to do |format|
       # format.html { redirect_to Item.comments.new , notice: "Item was successfully deleted." }
       #  format.html { redirect_to controller: :comments, action: :new, notice: "Item was successfully deleted." }
-       format.html { redirect_to new_item_comment_path(@item), notice: "Item was successfully deleted." }
+      format.html { redirect_to new_item_comment_path(@item), notice: "Item was successfully deleted." }
       format.json { head :no_content } 
     end
   end
 
+  def restore
+    @item.restore
+    respond_to do |format|
+      format.html { redirect_to items_url, notice: "Item was successfully restored." }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -82,6 +86,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :description, :deleted_at , :soft_deletion )
+      params.require(:item).permit(:name, :description, :deleted_at , :soft_deletion , :restore)
     end
 end

@@ -18,7 +18,9 @@
         <% if params[:filter] == "show_deleted" %>
           <span class= "navbar"><%= link_to 'Hide deleted Items ', request.params.except('filter')  , class: "  " %></span>
         <% else %>
-          <span class= "navbar"><%= link_to 'Show Deleted Items', request.params.slice(:filter).merge(filter: "show_deleted") , class: "  " %></span>
+          <span class= "navbar"><%= link_to 'Show Deleted Items', request.params.slice(:filter).merge(filter: "show_deleted") , class: "  "  %></span>
+          <%#=  :controller =>"items" %>
+          <%#= params %>
         <% end %>
       </div>
     </nav>

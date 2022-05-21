@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
     member do 
       get :soft_deletion
+      get :restore
     end
   end
 

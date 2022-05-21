@@ -29,7 +29,12 @@ module Deletable
         end
       end
     end
-# https://gist.github.com/Chryus/d2ff4b2ba52ad8809fd0 for call backs after
+
+
+    def restore
+      update(deleted_at: nil)
+    end
+
 
   end
 

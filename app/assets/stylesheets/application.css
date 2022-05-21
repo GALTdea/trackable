@@ -50,6 +50,21 @@
   width: 100%;
 }
 
+/* #customer tr{
+  border: 1px solid red !important;
+  padding: 8px;
+  background-color: red;
+} */
+.deleted{
+  /* background-color: #FF0000; */
+  outline-color: red;
+}
+
+.undelete{
+  color: red;
+}
+
+
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
@@ -132,7 +147,3 @@ div {
 }
 
 
-.deleted{
-  /* background-color: #FF0000; */
-  outline-color: red;
-}
