@@ -18,7 +18,7 @@
           <%= link_to "Show", item %> <br> 
           <%= link_to "Edit", edit_item_path(item) %> <br> 
           <%= link_to "Delete", soft_deletion_item_path(item),  method: :delete, class:"red"  %> <br>
-          <%= link_to "Deletion Notes", comment_path(item.comments.first) if item.deleted?  %>
+          <%= link_to "Deletion Notes", comment_path(item.comments.first) if item.deleted?  && item.comments.any? %>
         </td>
       </tr>
     <% end %>

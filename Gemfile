@@ -76,3 +76,4 @@ end
 
 
 gem 'rename'
+gem 'faker', '~> 2.20'

@@ -19,7 +19,6 @@ class Item < ApplicationRecord
   def self.filter(params)
     if params[:filter] == 'show_deleted'
       self.with_deleted
-      # self.where(deleted_at: nil)
     else
       self.without_deleted
     end
