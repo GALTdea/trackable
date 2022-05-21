@@ -14,6 +14,9 @@
  *= require_self
  */
 
+/* colors */
+.red { color: #f00; }
+
  .container {
   margin-right: auto;
   margin-left: auto;
@@ -41,6 +44,8 @@
   /* Center horizontally*/
   /* text-align: left; */
   text-align: left;
+  font-size: .7em;
+  line-height: 1.3em;
 }
 
 

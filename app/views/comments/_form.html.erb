@@ -2,7 +2,6 @@
   <% if comment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
       <ul>
         <% comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,8 +11,8 @@
   <% end %>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.label :body, "Post a Deletion Comment", style: "display: block" %>
+    <%= form.text_field :body %>
   </div>
 
   <div>
@@ -21,6 +20,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Submit a Deletion Comment" %>
   </div>
 <% end %>

@@ -14,11 +14,11 @@
           <%= link_to 'Undelete', restore_item_path(item)  , class:'' if item.deleted? %>
         </td>
         <td><%= item.description %></td>
-        <td> 
+        <td class="links"> 
           <%= link_to "Show", item %> <br> 
           <%= link_to "Edit", edit_item_path(item) %> <br> 
-          <%= link_to "Delete", soft_deletion_item_path(item),  method: :delete  %> <br>
-          <%= link_to "Deletion Notes", comment_path(item.comments.first) if item.comments.any?  %>
+          <%= link_to "Delete", soft_deletion_item_path(item),  method: :delete, class:"red"  %> <br>
+          <%= link_to "Deletion Notes", comment_path(item.comments.first) if item.deleted?  %>
         </td>
       </tr>
     <% end %>
